@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{D71F18B0-81F9-4A6B-B733-03F97DC6746B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudbitWebapi-p150714", "WebApplication1\CloudbitWebapi-p150714.csproj", "{D71F18B0-81F9-4A6B-B733-03F97DC6746B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{51CAA8CC-82DD-4E29-9D38-A04314732A08}"
 	ProjectSection(SolutionItems) = preProject
