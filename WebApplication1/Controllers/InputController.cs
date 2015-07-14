@@ -10,23 +10,32 @@ using System.IO;
 
 namespace WebApplication1.Controllers
 {
-    public class HelloWorldController : ApiController
+    public class ValueModel
+    {
+        public string CloudbitDeviceId { get; set; }
+        public string CloudbitAccessToken { get; set; }
+    }
+
+    public class InputController : ApiController
     {
         // /api/HelloWorld
-        public string Get()
+        public string Get([FromUri]ValueModel val)
         {
             HttpClient httpClient = new HttpClient();
             var requestUri =
-                new Uri("https://api-http.littlebitscloud.cc/devices/00e04c032d62/input");
+                new Uri(
+                    "https://api-http.littlebitscloud.cc/devices/" 
+                    + val.CloudbitDeviceId + 
+                    "/input");
             httpClient.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/vnd.littlebits.v2+json"));
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue(
-                    "Bearer",
-                    "04784c7ae09bea78704572648c547c472f61dfce0bdf00075fb050f85eaff8ab");
+                    "Bearer", val.CloudbitAccessToken);
             var stream = httpClient.GetStreamAsync(requestUri).Result;
             var reader = new StreamReader(stream);
             var firstLine = reader.ReadLine();
+            firstLine = firstLine.Replace("data:", "");
             return firstLine;
         }
     }
